@@ -2,5 +2,5 @@
 
 有如下项目，如果我没有标记完成，就说明还没有完成。
 
-- [ ] 使用react构建简历
-- [x] 表情包生成器
+- [ ] 使用react构建简历 
+- [x] 表情包生成器 [视频链接](https://scrimba.com/playlist/prXJpCQ)
