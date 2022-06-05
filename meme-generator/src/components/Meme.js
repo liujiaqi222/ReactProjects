@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function Meme() {
-  const [allMeme, setAllMeme] = useState("");
+  const [allMeme, setAllMeme] = useState([]);
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
