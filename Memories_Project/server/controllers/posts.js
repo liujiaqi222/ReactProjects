@@ -1,11 +1,13 @@
-import PostMessage from  '../models/postMessages.js'
+import PostMessage from '../models/postMessages.js'
 
 export const getPosts = async (req, res) => {
-  const postMessages =await  PostMessage.find();
-  res.status(200).json(postMessages);
+  const postMessages = await PostMessage.find();
+  res.status(200).json([{
+    a: 123,
+  }]);
 }
 
-export const createPost = async(req, res) => {
+export const createPost = async (req, res) => {
   const newPost = await PostMessage.create(req.body);
   res.status(201).json(newPost);
 }

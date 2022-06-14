@@ -3,13 +3,24 @@ import memories from './images/memories.png'
 import Posts from './components/Posts/Posts'
 import Form from './components/Form/Form'
 import './index.scss';
+import { useDispatch } from 'react-redux'
+import { getAllPosts } from './feature/posts/postsSlice.js'
+import { useEffect } from 'react';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllPosts());
+  }, []);
+
+
+
+
   return (
     <Container maxWidth='lg'>
       <AppBar position='static' color='inherit' className='appBar'>
         <Typography className='heading' variant='h2' align='center'>Memories</Typography>
-        <img src={memories} className='image' alt="memories" height='60'  />
+        <img src={memories} className='image' alt="memories" height='60' />
       </AppBar>
       <Grow in>
         <Container>
