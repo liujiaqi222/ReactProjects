@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllPosts());
+    dispatch(getAllPosts('abc'));
   }, []);
 
 

@@ -1,16 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchPosts } from '../../api/index.js'
+import { fetchPosts, createPostApi } from '../../api/index.js'
 
 
-export const getAllPosts = createAsyncThunk('posts/getAllPosts', async (name, thunkApi) => {
-  const {data} = await fetchPosts();
-  return data
+export const getAllPosts = createAsyncThunk('posts/getAllPosts', async () => {
+  const { data } = await fetchPosts();
+  return data;
 })
 
-
+export const createPost = createAsyncThunk('posts/createPost', async payload => {
+  const { data } = await createPostApi(payload);
+  return data;
+})
 
 const initialState = {
-  posts: []
+  posts: [],
 }
 
 const postSlice = createSlice({
@@ -23,11 +26,14 @@ const postSlice = createSlice({
     builder.addCase(getAllPosts.fulfilled, (state, action) => {
       state.posts = action.payload;
     })
+    builder.addCase(createPost.fulfilled, (state, action) => {
+      state.posts.push(action.payload);
+    })
   }
 })
 
 
-export const { getPosts } = postSlice.actions;
+export const { } = postSlice.actions;
 
 export default postSlice.reducer;
 
